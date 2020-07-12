@@ -15,7 +15,7 @@
 	<!-- WEB FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet" />
 
-	<title>OHIF Standalone Viewer</title>
+	<title>OHIF Viewer</title>
 </head>
 
 <body>
@@ -28,7 +28,8 @@
     var containerId = "root";
     var componentRenderedOrUpdatedCallback = function(){
       console.log('OHIF Viewer rendered/updated');
-    }
+	}
+	var urlCloud = "http://don2019b.australiaeast.cloudapp.azure.com:8042"
     window.OHIFViewer.installViewer(
       {
       // routerBasename: '/',
@@ -36,9 +37,9 @@
         dicomWeb: [
           {
             name: 'DCM4CHEE',
-            wadoUriRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/wado',
-            qidoRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/rs',
-            wadoRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/rs',
+            wadoUriRoot: `${urlCloud}/wado`,
+            qidoRoot: `${urlCloud}/dicom-web`,
+			wadoRoot: `${urlCloud}/dicom-web`,			
             qidoSupportsIncludeField: true,
             imageRendering: 'wadors',
             thumbnailRendering: 'wadors',
